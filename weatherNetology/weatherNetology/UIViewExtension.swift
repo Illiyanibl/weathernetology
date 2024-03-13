@@ -34,6 +34,19 @@ extension UITextField {
     }
 }
 
+protocol AlertsDelegate: AnyObject {
+    func callAlert(description: String, title: String)
+}
+
+extension UIViewController {
+    func callAlert(description: String, title: String) {
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "Ok", style: .default) { _ in }
+        alert.addAction(actionOk)
+        present(alert, animated: true)
+    }
+}
+
 extension UIColor {
     convenience init?(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)

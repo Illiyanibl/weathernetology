@@ -6,12 +6,19 @@
 //
 
 import UIKit
-final class MainViewController : UIViewController {
+protocol IMainViewController: AnyObject {
+    func setTitle(title: String)
+    func setWeather(weather : [String])
+}
+
+final class MainViewController : UIViewController, IMainViewController{
     let viewColor = UIColor(hex: "#204EC7")
     let textMain = UIColor(hex: "#272722")
     let whiteColor = UIColor(hex: "#FFFFFF")
     let yelowColor = UIColor(hex: "#F6DD01")
     let borderColor = UIColor(hex: "#ABBCEA")
+
+    var mainPresenter: IMainPresenter
 
     lazy var mainViewCollection: UICollectionView = {
         let loyut = UICollectionViewFlowLayout()
@@ -38,6 +45,7 @@ final class MainViewController : UIViewController {
         label.textColor = textMain
         return label
     }()
+
 
     lazy var mainView: UIView = {
         let view = UIView()
@@ -109,23 +117,40 @@ final class MainViewController : UIViewController {
         return label
     }()
 
-
-
+    init(mainPresenter: IMainPresenter) {
+        self.mainPresenter = mainPresenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainPresenter.start()
         layout()
-
         setupConstraints()
     }
     private func layout(){
-        setupSubView()
         view.backgroundColor = .white
+        setupSubView()
         view.addSubviews([mainView, onDayHourLabel, onDayHourView, mainViewCollection, tableLabel, mainViewTable])
     }
     private func setupSubView(){
         mainView.addSubviews([identDegre, minDegreeLabel, maxDegreeLabel, degreeLabel, weatherLabel])
 
+    }
+
+    func setTitle(title: String){
+        self.title = title
+        print(title)
+    }
+
+    func setWeather(weather : [String]){
+        print(weather[0])
+        degreeLabel.text = weather[0]
     }
 
     private func setupConstraints(){
@@ -134,13 +159,13 @@ final class MainViewController : UIViewController {
         let safeArea = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             //MARK: mainViewConstraints
-            identDegre.centerXAnchor.constraint(equalTo: degreeLabel.centerXAnchor),
+            identDegre.centerXAnchor.constraint(equalTo: mainView.centerXAnchor),
             identDegre.topAnchor.constraint(equalTo: mainView.topAnchor, constant: leftIdent * 3),
 
-            minDegreeLabel.trailingAnchor.constraint(equalTo: degreeLabel.leadingAnchor, constant: leftIdent / 2),
+            minDegreeLabel.trailingAnchor.constraint(equalTo: mainView.centerXAnchor, constant: -leftIdent),
             minDegreeLabel.topAnchor.constraint(equalTo: identDegre.topAnchor),
 
-            maxDegreeLabel.leadingAnchor.constraint(equalTo: degreeLabel.trailingAnchor, constant: -leftIdent / 2),
+            maxDegreeLabel.leadingAnchor.constraint(equalTo: mainView.centerXAnchor, constant: leftIdent),
             maxDegreeLabel.topAnchor.constraint(equalTo: identDegre.topAnchor),
 
             degreeLabel.topAnchor.constraint(equalTo: identDegre.bottomAnchor, constant: leftIdent / 2),

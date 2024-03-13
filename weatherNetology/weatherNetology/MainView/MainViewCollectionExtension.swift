@@ -8,7 +8,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     private var inset: CGFloat  { return 8}
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.bounds.width - inset * 4) / 3
+        //let width = (collectionView.bounds.width - inset * 4) / 3
         return CGSize(width: 42, height: 85)
     }
 

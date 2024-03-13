@@ -18,6 +18,10 @@
 		5116E5D82B90D29500548C72 /* MainViewCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116E5D72B90D29500548C72 /* MainViewCollectionExtension.swift */; };
 		5116E5DA2B90D3CD00548C72 /* MainViewTableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116E5D92B90D3CD00548C72 /* MainViewTableExtension.swift */; };
 		5116E5DC2B90D5DE00548C72 /* MainViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116E5DB2B90D5DE00548C72 /* MainViewTableCell.swift */; };
+		5116E5E22B94BB4100548C72 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116E5E12B94BB4100548C72 /* NetworkService.swift */; };
+		5116E5E42B94BBE600548C72 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116E5E32B94BBE600548C72 /* WeatherService.swift */; };
+		5116E5E62B96172F00548C72 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116E5E52B96172F00548C72 /* MainModel.swift */; };
+		511AD25E2B9D95F40029D9F2 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511AD25D2B9D95F40029D9F2 /* MainPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		5116E5D72B90D29500548C72 /* MainViewCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCollectionExtension.swift; sourceTree = "<group>"; };
 		5116E5D92B90D3CD00548C72 /* MainViewTableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableExtension.swift; sourceTree = "<group>"; };
 		5116E5DB2B90D5DE00548C72 /* MainViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableCell.swift; sourceTree = "<group>"; };
+		5116E5E12B94BB4100548C72 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5116E5E32B94BBE600548C72 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		5116E5E52B96172F00548C72 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		511AD25D2B9D95F40029D9F2 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,7 @@
 		5116E5BA2B8F7D1D00548C72 /* weatherNetology */ = {
 			isa = PBXGroup;
 			children = (
+				5116E5E02B94BA6E00548C72 /* Service */,
 				5116E5D62B8F8CA800548C72 /* MainView */,
 				5116E5BB2B8F7D1D00548C72 /* AppDelegate.swift */,
 				5116E5BD2B8F7D1D00548C72 /* SceneDelegate.swift */,
@@ -86,8 +95,19 @@
 				5116E5D72B90D29500548C72 /* MainViewCollectionExtension.swift */,
 				5116E5D92B90D3CD00548C72 /* MainViewTableExtension.swift */,
 				5116E5DB2B90D5DE00548C72 /* MainViewTableCell.swift */,
+				5116E5E52B96172F00548C72 /* MainModel.swift */,
+				511AD25D2B9D95F40029D9F2 /* MainPresenter.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		5116E5E02B94BA6E00548C72 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5116E5E12B94BB4100548C72 /* NetworkService.swift */,
+				5116E5E32B94BBE600548C72 /* WeatherService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +137,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
@@ -160,12 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5116E5E22B94BB4100548C72 /* NetworkService.swift in Sources */,
 				5116E5D52B8F8C9000548C72 /* UIViewExtension.swift in Sources */,
+				5116E5E42B94BBE600548C72 /* WeatherService.swift in Sources */,
 				5116E5C02B8F7D1D00548C72 /* ViewController.swift in Sources */,
 				5116E5D32B8F861C00548C72 /* MainViewCollectionCell.swift in Sources */,
 				5116E5BC2B8F7D1D00548C72 /* AppDelegate.swift in Sources */,
+				511AD25E2B9D95F40029D9F2 /* MainPresenter.swift in Sources */,
 				5116E5DC2B90D5DE00548C72 /* MainViewTableCell.swift in Sources */,
 				5116E5DA2B90D3CD00548C72 /* MainViewTableExtension.swift in Sources */,
+				5116E5E62B96172F00548C72 /* MainModel.swift in Sources */,
 				5116E5D82B90D29500548C72 /* MainViewCollectionExtension.swift in Sources */,
 				5116E5BE2B8F7D1D00548C72 /* SceneDelegate.swift in Sources */,
 				5116E5D02B8F7ECB00548C72 /* MainViewController.swift in Sources */,
@@ -315,6 +342,7 @@
 				DEVELOPMENT_TEAM = L24ACGSC43;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weatherNetology/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -343,6 +371,7 @@
 				DEVELOPMENT_TEAM = L24ACGSC43;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weatherNetology/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
